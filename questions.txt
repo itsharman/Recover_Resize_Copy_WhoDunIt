@@ -1,0 +1,62 @@
+0.  JPG supports 16.7 million colors. GIF supports 256 colors. 
+PNG supports over 16 million colors. BMP supports over 4 billion colors.
+1.  GIF and PNG both support animations, but a PNG is called a MNG when it is an
+animation (design choice). Not all browsers support PNG animations, however.
+2.  Lossless compression is when a compressed file can be decompressed back 
+into its original form with zero loss of information. If the original file cannot
+be brought back without loss, then some data is permanently lost and the 
+compression is lossy. Thus, lossy compressed files are of lower quality and take
+less space than lossless compressed files.
+3.  JPG is lossy-compressed. GIF can be lossy if the original image contains more
+than 256 colors, but it is lossless if the original image contains 256 or less 
+colors. GIF uses a lossless compression algorithm. PNG is a lossless compression
+format. BMP is an uncompressed image format. 
+4.  Two things happen when a file is deleted on a FAT file system. First, the 
+system changes the first character in the file's directory entry to tell the
+computer that the file was deleted and that the entry can be recycled. Second,
+the system moves all of the file's FAT clusters to the hard drive's list of free
+clusters. The actual data of the file is never touched, so technically, the FAT
+file system doesn't actually erase any data.
+5.  You can physically destroy a hard drive by disintegrating, incinerating, 
+pulverizing, shredding, or melting after deleting your data, rendering 
+the hard drive unusable. You can also degauss the hard drive with a Type 1 or 
+Type 2 degausser to randomize its magnetic domains, but this method would most 
+likely render your drive unusable. Lastly, you can also overwrite the drive's 
+data by filling every adressable block with ASCII NUL bytes (zeroes) so that the
+data cannot be recovered. All of these methods will ensure with high probability
+that the files you deleted cannot be recovered.
+6.  stdint.h is a C header file that declares sets of integer types with specific
+widths, corresponding sets of macros, and macros that specify the limits of
+integer types corresponding to types defined in other standard headers.
+7.  uint8_t, uint32_t, and uint16_t are all derived from unitN_t, which 
+designates an unsigned integer type with width n. So, for example, uint32_t
+designates an unsigned integer type with a width of exactly 32 bits. On the other
+hand, int32_t is derived from intN_t which designates a signed integer type with
+width N and no padding bits. So, int32_t represents a signed integer type with a 
+width of exactly 32 bits. The point of using these is so that the coder can make
+it clear that he wishes to use the data in a specified way. It also adds to the
+program's readability. 
+8.  A BYTE is 1 byte (8 bits) long. A DWORD is 4 bytes (32 bits) long. A LONG is
+also 4 bytes (32 bits) long. A WORD is 2 bytes (16 bits) long.
+9.  The first two bytes of any BMP file must be a WORD bfType from the 
+BITMAPFILEHEADER struct (as seen from bmp.h).
+10. bfSize stores the size of the entire BMP file, which consists of the size of
+the BMP image and the size of its headers. biSize stores the size of the BMP
+image only, which consists of the size of RGBTRIPLE and the size of the padding.
+11. If biHeight is negative, then that means that the bitmap is top-down DIB
+with the origin located at the top-left corner.
+12. WORD biBitCount specifices the BMP's color depth or, more specifically, the 
+bits per pixel.
+13. fopen will return NULL in copy.c:37 if it can't find the file it is looking
+for, if there is not enough disk space, or if there is no permission to open the
+file.
+14. The third argument to fread is always 1 because it is only reading one
+struct at a time.
+15. If bi.biWidth is 3, then padding must be 3 because the scanline must be a
+multiple of 4. So, since bi.biWidth is 3, that means that we have 3 bytes 
+allocated for every pixel and that we have three pixels, so we are using 9 bytes. 
+To make it a factor of 4, we need to add 3 bytes of padding (getting 12 bytes, 
+which is divisible by 4).
+16. fseek allows you to change the location of the file pointer in the file.
+17. SEEK_CUR moves the pointer x bytes down from the current pointer position.
+18. Rick Astley! Never gonna give you up!
